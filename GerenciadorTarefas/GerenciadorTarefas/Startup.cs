@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace GerenciadorTarefas
@@ -32,6 +33,9 @@ namespace GerenciadorTarefas
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GerenciadorTarefas", Version = "v1" });
             });
+
+            var chaveCriptografiaEmBytes = Encoding.ASCII.GetBytes(ChaveJWT.ChaveSecreta);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
