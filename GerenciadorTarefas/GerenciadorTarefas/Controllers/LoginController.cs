@@ -1,6 +1,7 @@
 ﻿using GerenciadorTarefas.DTO;
 using GerenciadorTarefas.Models;
 using GerenciadorTarefas.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,7 @@ namespace GerenciadorTarefas.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class LoginController : ControllerBase
+    public class LoginController : BaseController
     {
         private readonly ILogger<LoginController> _logger;
 
@@ -26,6 +27,7 @@ namespace GerenciadorTarefas.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult EfetuarLogin([FromBody] LoginRequisicaoDto requisicao)
         {
             try
